@@ -36,12 +36,14 @@ class AuthController extends Controller
         return response()->json(['token' => $token]);
     }
 
+    // logout
     public function logout(Request $request)
     {
         $request->user()->tokens()->delete();
         return response()->json(['message' => 'Logout sukses']);
     }
 
+    //register
     public function register(Request $request)
 {
     $user = User::create([
